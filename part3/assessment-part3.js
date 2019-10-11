@@ -14,7 +14,13 @@
 
 // CODE HERE...
 
-
+function callBinding(magicAnimals, updateAnimal, id) {
+    for(let i = 0; i < magicAnimals.length; i++) {
+        if(i === id) {
+            return magicAnimals[i].updateAnimal('Trogdor')
+        }
+    }
+}
 
 // *************
 // * PROBLEM 2 *

@@ -75,7 +75,7 @@ function large() {
 }
 // CODE HERE...
 
-
+var boundToElephant = large.bind(elephant);
 
 // *************
 // * PROBLEM 3 *
@@ -89,7 +89,9 @@ function large() {
 
 // CODE HERE...
 
-
+function deathStar(capacity, crew) {
+  this.crew = capacity;
+}
 
 // *************
 // * PROBLEM 4 *
@@ -104,7 +106,11 @@ function large() {
 
 // CODE HERE...
 
-
+function accountingOffice(assets) {
+  return function(liabilities) {
+    return (assets + liabilities);
+  }
+}
 
 // *************
 // * PROBLEM 5 *
@@ -129,7 +135,17 @@ function large() {
 
 // CODE HERE...
 
-
+function forgetter(name) {
+  let stuff = []
+  return function rememberall(item) {
+    stuff.push(item)
+    console.log(stuff)
+    return {
+      name: name,
+      remember: stuff
+    }
+  }
+}
 
 // *************
 // * PROBLEM 6 *
@@ -153,6 +169,34 @@ function large() {
 //   danger: (modified danger value)
 // }
 
-// NOTE: Neither hunger nor danger should be able to exceed 100 or drop below 0.
+// NOTE: Neither hunger nor danger should be able to exceed 100 or drop below 0. >:(
 
 // CODE HERE...
+
+function frodo(startingHungerValue, startingDangerValue) {
+  let hunger = startingHungerValue;
+  let danger = startingDangerValue;
+
+  return {
+    dinnerOverFire: () => {
+      if(hunger > 25) hunger -= 25
+      else hunger = 0;
+      if(danger < 20) danger += 40
+      else danger = 100;
+      return {
+        hunger: hunger,
+        danger: danger
+      }
+    },
+    hidingInBush: () => {
+      if(hunger < 65) hunger += 35
+      else hunger = 100;
+      if(danger > 20) danger -= 20
+      else danger = 0;
+      return {
+        hunger: hunger,
+        danger: danger
+      }
+    }
+  }
+}
